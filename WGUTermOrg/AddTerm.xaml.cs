@@ -25,7 +25,7 @@ namespace WGUTermOrg
             terms.TermStart = TermStart.Date;
             terms.TermEnd = TermEnd.Date;
 
-            if (InputValidation.IsNull(terms.TermName))
+            if (InputValidation.IsNull(terms.TermName)) //Entry validation before save
             {
                 if (terms.TermStart < terms.TermEnd)
                 {

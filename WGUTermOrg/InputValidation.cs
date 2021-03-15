@@ -7,7 +7,7 @@ namespace WGUTermOrg
 {
     class InputValidation
     {
-
+        //Validates field input and email input specifically 
         public static bool CorrectEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -50,7 +50,7 @@ namespace WGUTermOrg
             }
         }
 
-        public static bool IsNull(string fieldEntry)
+        public static bool IsNull(string fieldEntry) //Handles empty fields
         {
             if (!String.IsNullOrEmpty(fieldEntry))
             {

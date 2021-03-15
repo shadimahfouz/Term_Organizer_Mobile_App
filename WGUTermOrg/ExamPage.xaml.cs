@@ -42,14 +42,14 @@ namespace WGUTermOrg
                     $"Select ExamType From Exam Where ExamClass = '{_currentClass.ClassID}'");
             if (numExams.Count == 2)
             {
-                await DisplayAlert("Error", "You cannot add more than two exams, remove an exam and try again.",
+                await DisplayAlert("Error", "You cannot add more than two exams, remove an exam and try again.", //Prevents users from adding more than one exam
                     "Okay");
             }
 
             else await Navigation.PushModalAsync(new AddExam(_currentClass));
         }
 
-        private async void ExamsTapped(object sender, ItemTappedEventArgs e)
+        private async void ExamsTapped(object sender, ItemTappedEventArgs e) //Brings up exam details for exam that was tapped
         {
             Exams exam = (Exams) e.Item;
             await Navigation.PushModalAsync(new ExamDetails(exam));

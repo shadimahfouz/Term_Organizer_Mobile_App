@@ -13,7 +13,6 @@ namespace WGUTermOrg.Droid
         public SQLiteAsyncConnection GetConnection()
         {
             var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "AppDatabase.db3");
-            //var filePath = Path.Combine(folderPath, "AppDatabase.db3");
             return new SQLiteAsyncConnection(dbPath);
         }
     }

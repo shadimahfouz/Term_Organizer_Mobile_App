@@ -8,6 +8,8 @@ using Xamarin.Forms;
 
 namespace WGUTermOrg
 {
+    //Creating tables and classes with _id as the primary key for each
+
     [Table("Term")]
     public class Terms
     {
@@ -61,7 +63,7 @@ namespace WGUTermOrg
             termslistView.ItemTapped += new EventHandler<ItemTappedEventArgs>(ClickOnTerm);
         }
 
-        protected override async void OnAppearing()
+        protected override async void OnAppearing() //Pre loads field information for testing purposes
         {
             await _connection.CreateTableAsync<Terms>();
             await _connection.CreateTableAsync<Classes>();
@@ -85,9 +87,9 @@ namespace WGUTermOrg
                 preLoadClass.ClassStart = new DateTime(2021, 01, 01);
                 preLoadClass.ClassEnd = new DateTime(2021, 02, 15);
                 preLoadClass.ClassStatus = "Enrolled";
-                preLoadClass.ClassProfName = "Adam Smith";
-                preLoadClass.ClassProfNumber = "555-555-5555";
-                preLoadClass.ClassProfEmail = "asmith@wgu.edu";
+                preLoadClass.ClassProfName = "Shadi Mahfouz";
+                preLoadClass.ClassProfNumber = "313-378-3200";
+                preLoadClass.ClassProfEmail = "smahfou@wgu.edu";
                 preLoadClass.Notifs = 1;
                 preLoadClass.ClassNotes = "This class was a challenge.";
                 preLoadClass.CTermID = preLoadTerm.TermID;
@@ -112,7 +114,7 @@ namespace WGUTermOrg
                 await _connection.InsertAsync(preLoadPA);
             }
 
-            if (pushNotifs == true)
+            if (pushNotifs == true) //Handles notifications for classes
             {
                 pushNotifs = false;
                 int classID = 0;
@@ -130,7 +132,7 @@ namespace WGUTermOrg
                 }
 
                 int examID = classID;
-                foreach (Exams exams in examlist)
+                foreach (Exams exams in examlist) //Handles notifications for exams
                 {
                     examID++;
                     if (exams.Notifs == 1)
@@ -149,7 +151,7 @@ namespace WGUTermOrg
             base.OnAppearing();
         }
 
-        private async void Button_OnClicked(object sender, EventArgs e)
+        private async void Button_OnClicked(object sender, EventArgs e) //Add term button
         {
             await Navigation.PushModalAsync(new AddTerm(this));
         }

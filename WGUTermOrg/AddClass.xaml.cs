@@ -31,10 +31,10 @@ namespace WGUTermOrg
             classes.ClassNotes = ClassNotes.Text;
             classes.CTermID = _terms.TermID;
 
-            if (InputValidation.IsNull(ClassName.Text) && InputValidation.IsNull(ProfessorName.Text) &&
+            if (InputValidation.IsNull(ClassName.Text) && InputValidation.IsNull(ProfessorName.Text) && //This validates entry fields before save
                 InputValidation.IsNull(ProfessorNumber.Text))
             {
-                if (InputValidation.CorrectEmail(ProfessorEmail.Text))
+                if (InputValidation.CorrectEmail(ProfessorEmail.Text)) //This specifically validates email entry before save
                 {
                     if (classes.ClassStart < classes.ClassEnd)
                     {

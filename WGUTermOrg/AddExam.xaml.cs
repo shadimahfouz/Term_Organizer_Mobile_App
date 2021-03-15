@@ -20,15 +20,15 @@ namespace WGUTermOrg
 
         protected override async void OnAppearing()
         {
+            //Selects exams based on type and id relative to class id
             await _connection.CreateTableAsync<Exams>();
             var objExam =
-                await _connection.QueryAsync<Exams>(
-                    $"Select Type From 'Exam' Where 'Classes' = '{_classes.ClassID} And Type = 'Objective'");
+                await _connection.QueryAsync<Exams>($"Select ExamType From Exam Where ExamClass = '{_classes.ClassID}' And ExamType = 'Objective'");
 
             var perfExam =
-                await _connection.QueryAsync<Exams>(
-                    $"Select Type From 'Exam' Where 'Classes' = '{_classes.ClassID} And Type = 'Performance'");
+                await _connection.QueryAsync<Exams>($"Select ExamType From Exam Where ExamClass = '{_classes.ClassID}' And ExamType = 'Performance'");
 
+            //This removes either exam selection type if one already exists
             if (objExam.Count == 0)
             {
                 ExamType.Items.Add("Objective");
@@ -39,21 +39,16 @@ namespace WGUTermOrg
                 ExamType.Items.Add("Performance");
             }
 
-            if (objExam.Count == 0)
+            if (objExam.Count == 1)
             {
                 ExamType.Items.Remove("Objective");
             }
 
-            if (perfExam.Count == 0)
+            if (perfExam.Count == 1)
             {
                 ExamType.Items.Remove("Performance");
             }
             base.OnAppearing();
-        }
-
-        private async void ImageButton_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
         }
 
         private async void AddExamButton(object sender, EventArgs e)
@@ -65,7 +60,7 @@ namespace WGUTermOrg
             exam.ExamClass = _classes.ClassID;
             exam.ExamType = (string)ExamType.SelectedItem;
 
-            if (InputValidation.IsNull(ExamName.Text))
+            if (InputValidation.IsNull(ExamName.Text)) //This validates entry fields before allowing save
             {
                 if (exam.ExamStart < exam.ExamEnd)
                 {

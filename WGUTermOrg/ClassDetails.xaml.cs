@@ -39,7 +39,7 @@ namespace WGUTermOrg
 
         private async void DropClassButton(object sender, EventArgs e)
         {
-            var dropConfirm = await DisplayAlert("Alert", "Are you sure you want to drop this class?", "Yes", "No");
+            var dropConfirm = await DisplayAlert("Alert", "Are you sure you want to drop this class?", "Yes", "No"); //Confirms deletion of class
             if (dropConfirm)
             {
                 await _connection.DeleteAsync(_currentClasses);
@@ -54,7 +54,7 @@ namespace WGUTermOrg
 
         private async void ShareNotesButton(object sender, EventArgs e)
         {
-            await Share.RequestAsync(new ShareTextRequest
+            await Share.RequestAsync(new ShareTextRequest //Handles note sharing
             {
                 Text = ClassNotes.Text,
                 Title = "Share class notes."

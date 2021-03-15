@@ -34,7 +34,7 @@ namespace WGUTermOrg
             base.OnAppearing();
         }
 
-        private async void ClassesTapped(object sender, ItemTappedEventArgs e)
+        private async void ClassesTapped(object sender, ItemTappedEventArgs e) //Navigates to class detail page if class is tapped on screen
         {
             Classes classes = (Classes) e.Item;
             await Navigation.PushModalAsync(new ClassDetails(classes));

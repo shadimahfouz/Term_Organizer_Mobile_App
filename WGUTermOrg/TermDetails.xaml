@@ -43,7 +43,7 @@
             </ListView>
             <BoxView Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="Black"/>
             <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Center">
-                <Button Text="Add Class" TextColor="White" Clicked="AddClassButton" BackgroundColor="Transparent"/>
+                <Button Text="Add Class" IsVisible="True" TextColor="White" Clicked="AddClassButton" BackgroundColor="Transparent"/>
                 <Button Text="Edit Term" TextColor="White" Clicked="EditTermButton" BackgroundColor="Transparent"/>
             </StackLayout>
             <BoxView Grid.Row="3" Grid.ColumnSpan="3" BackgroundColor="Black"/>

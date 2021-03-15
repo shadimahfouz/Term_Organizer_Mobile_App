@@ -49,7 +49,7 @@ namespace WGUTermOrg
             _currentClass.ClassNotes = ClassNotes.Text;
             _currentClass.Notifs = Notifs.On == true ? 1 : 0;
 
-            if (InputValidation.IsNull(ClassName.Text) && InputValidation.IsNull(ProfessorName.Text) &&
+            if (InputValidation.IsNull(ClassName.Text) && InputValidation.IsNull(ProfessorName.Text) && //Field entry validation before save
                 InputValidation.IsNull(ProfessorPhone.Text))
             {
                 if (InputValidation.CorrectEmail(ProfessorEmail.Text))

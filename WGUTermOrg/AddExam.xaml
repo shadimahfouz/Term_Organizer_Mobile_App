@@ -20,9 +20,7 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <BoxView Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Black"/>
-            <ImageButton Padding="5" Grid.Row="0" Grid.Column="0" Source="back.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Transparent" Clicked="ImageButton_OnClicked"/>
             <Label Grid.Row="0" Grid.Column="1" Text="Edit Course" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Image  Margin="5" Grid.Row="0" Grid.Column="2" Source="wgu.png" HorizontalOptions="Center" VerticalOptions="Center"/>
             <TableView Grid.Row="1" Grid.ColumnSpan="3"  Margin="10,0,10,0">
                 <TableSection>
                     <EntryCell Label="Exam Name" x:Name="ExamName"/>

@@ -35,7 +35,7 @@ namespace WGUTermOrg
 
         private async void DropExamButton(object sender, EventArgs e)
         {
-            var dropConfirm = await DisplayAlert("Confirm", "Are you sure you want to drop this class?", "Yes", "No");
+            var dropConfirm = await DisplayAlert("Confirm", "Are you sure you want to delete this exam?", "Yes", "No"); //Confirms exam deletion
             if (dropConfirm)
             {
                 await _connection.DeleteAsync(_exams);

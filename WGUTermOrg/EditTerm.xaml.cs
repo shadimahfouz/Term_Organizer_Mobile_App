@@ -33,7 +33,7 @@ namespace WGUTermOrg
             _term.TermStart = TermStart.Date;
             _term.TermEnd = TermEnd.Date;
 
-            if (InputValidation.IsNull(_term.TermName))
+            if (InputValidation.IsNull(_term.TermName)) //Field entry validation before save
             {
                 if (_term.TermStart < _term.TermEnd)
                 {

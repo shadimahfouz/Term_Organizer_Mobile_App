@@ -26,7 +26,7 @@ namespace WGUTermOrg
             ExamStart.Date = _exams.ExamStart;
             ExamEnd.Date = _exams.ExamEnd;
 
-            if (_exams.Notifs == 1)
+            if (_exams.Notifs == 1) //Handles exam notifications
             {
                 Notifs.On = true;
             }
@@ -40,7 +40,7 @@ namespace WGUTermOrg
             _exams.ExamEnd = ExamEnd.Date;
             _exams.Notifs = Notifs.On == true ? 1 : 0;
 
-            if (InputValidation.IsNull(ExamName.Text))
+            if (InputValidation.IsNull(ExamName.Text)) //Field entry validation before save
             {
                 if (_exams.ExamStart < _exams.ExamEnd)
                 {
