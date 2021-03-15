@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="WGUTermOrg.EditExam">
+
+
+    <ContentPage.Content>
+        <Grid x:Name="PrimaryNav" ColumnSpacing="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Black"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Edit Exams" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <TableView Grid.Row="1" Grid.ColumnSpan="3"  Margin="10,0,10,0">
+                <TableSection>
+                    <EntryCell Label="Exam Name" x:Name="ExamName"/>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="13,0">
+                            <Label Text="Start Date" VerticalOptions="Center"/>
+                            <DatePicker x:Name="ExamStart"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="13,0">
+                            <Label Text="End Date" VerticalOptions="Center"/>
+                            <DatePicker x:Name="ExamEnd"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <SwitchCell Text="Notifications" x:Name="Notifs"/>
+                </TableSection>
+
+            </TableView>
+            <BoxView Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="Black"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Save" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="SaveButton" BackgroundColor="Transparent"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

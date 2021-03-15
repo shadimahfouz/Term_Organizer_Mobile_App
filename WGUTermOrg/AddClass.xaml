@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="WGUTermOrg.AddClass">
+
+
+    <ContentPage.Content>
+        <Grid x:Name="PrimaryNav" ColumnSpacing="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Black"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Edit Course" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <TableView Grid.Row="1" Grid.ColumnSpan="3"  Margin="10,0,10,0">
+                <TableSection>
+                    <EntryCell Label="Class Name" x:Name="ClassName"/>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="13,0">
+                            <Label Text="Class Status" VerticalOptions="Center"/>
+                            <Picker x:Name="ClassStatus" Title="Select ">
+                                <Picker.Items>
+                                    <x:String>Enrolled</x:String>
+                                    <x:String>Completed</x:String>
+                                    <x:String>Dropped</x:String>
+                                    <x:String>Not Enrolled</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="13,0">
+                            <Label Text="Start Date" VerticalOptions="Center"/>
+                            <DatePicker x:Name="ClassStart"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="13,0">
+                            <Label Text="End Date" VerticalOptions="Center"/>
+                            <DatePicker x:Name="ClassEnd"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <EntryCell Label="Professor Name:" x:Name="ProfessorName"/>
+                    <EntryCell Label="Professor Phone:" x:Name="ProfessorNumber"/>
+                    <EntryCell Label="Professor Email:" x:Name="ProfessorEmail"/>
+                    <SwitchCell Text="Notifications" x:Name="Notifs"/>
+                    <EntryCell Label="Class Notes:" x:Name="ClassNotes"/>
+                </TableSection>
+
+            </TableView>
+            <BoxView Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="Black"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Add Class" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="AddClassButton" BackgroundColor="Transparent"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
